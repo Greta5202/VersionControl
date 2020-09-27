@@ -33,7 +33,7 @@ namespace UserMaintenance
                 LastName = textBox1.Text,
                 FirstName = textBox2.Text
             };
-            users.Add(u);
+            users.Add(u); //második pusholás?
         }
     }
 }
