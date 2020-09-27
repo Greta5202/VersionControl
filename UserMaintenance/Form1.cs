@@ -54,5 +54,11 @@ namespace UserMaintenance
             }
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            label1.Text.Remove(); //???
+            //nem tudtam, hogy kell törölni
+        }
     }
 }
