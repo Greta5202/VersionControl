@@ -77,5 +77,14 @@ namespace UserMaintenance {
                 return ResourceManager.GetString("FullName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kiírás.
+        /// </summary>
+        internal static string Kiiras {
+            get {
+                return ResourceManager.GetString("Kiiras", resourceCulture);
+            }
+        }
     }
 }
