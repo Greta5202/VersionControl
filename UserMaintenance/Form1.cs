@@ -14,45 +14,18 @@ namespace UserMaintenance
 {
     public partial class Form1 : Form
     {
-        BindingList<User> users = new BindingList<User>();
+        RealEstateEntities context = new RealEstateEntities();
+        List<Flat> Flats;
         public Form1()
         {
             InitializeComponent();
-            label1.Text = Resource.FullName;
+            LoadData();
             
-            button1.Text = Resource.Add;
-            button2.Text = Resource.Kiiras;
-
-            listBox1.DataSource = users;
-            listBox1.ValueMember = "ID";
-            listBox1.DisplayMember = "FullName";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoadData()
         {
-            var u = new User()
-            {
-                FullName = textBox1.Text,
-            };
-            users.Add(u); 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog sfd = new SaveFileDialog();
-            if (sfd.ShowDialog() != DialogResult.OK) return;
-            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
-            {
-                foreach (var u in users)
-                {
-                    sw.Write(u.FullName);
-                    sw.Write(";");
-                    sw.Write(u.ID);
-                    sw.Write(";");
-                    sw.WriteLine();
-                }
-            }
-
+            Flats = context.Flats.ToList();
         }
     }
 }
