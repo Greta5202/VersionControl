@@ -17,15 +17,23 @@ namespace _6heti
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
         
         public Form1()
         {
             InitializeComponent();
+            NewMethod();
+
+        }
+
+        private void NewMethod()
+        {
+            Rates.Clear();
+
             GetExchangeRates();
             dataGridView1.DataSource = Rates;
             otosfeladatfuggveny();
             hatosfeladatfuggveny();
-            
         }
 
         void GetExchangeRates()
@@ -33,9 +41,10 @@ namespace _6heti
             var mnbService = new MNBArfolyamServiceSoapClient();
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                
+                currencyNames = Convert.ToString(comboBox1.SelectedItem),
+                startDate = Convert.ToString(dateTimePicker1.Value),
+                endDate = Convert.ToString(dateTimePicker2.Value)
             };
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
@@ -44,7 +53,7 @@ namespace _6heti
         void otosfeladatfuggveny()
         {
             var xml = new XmlDocument();
-            xml.LoadXml(result);
+            xml.LoadXml(result);                    // ???????????????????
 
             foreach (XmlElement element in xml.DocumentElement)
             {
@@ -84,5 +93,14 @@ namespace _6heti
             chartArea.AxisY.IsStartedFromZero = false;
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            NewMethod();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NewMethod();
+        }
     }
 }
