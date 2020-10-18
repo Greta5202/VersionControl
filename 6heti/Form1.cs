@@ -1,4 +1,5 @@
-﻿using _6heti.MnbServiceReference;
+﻿using _6heti.Entities;
+using _6heti.MnbServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,13 @@ namespace _6heti
 {
     public partial class Form1 : Form
     {
+        BindingList<RateData> Rates = new BindingList<RateData>();
+        
         public Form1()
         {
             InitializeComponent();
             GetExchangeRates();
+            dataGridView1.DataSource = Rates;
         }
 
         void GetExchangeRates()
