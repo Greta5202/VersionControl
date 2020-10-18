@@ -18,10 +18,12 @@ namespace _6heti
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
         BindingList<string> Currencies = new BindingList<string>();
-        
+
         public Form1()
         {
             InitializeComponent();
+            GetCurrencies();
+            comboBox1.DataSource = Currencies;
             NewMethod();
 
         }
@@ -41,7 +43,7 @@ namespace _6heti
             var mnbService = new MNBArfolyamServiceSoapClient();
             var request = new GetExchangeRatesRequestBody()
             {
-                
+
                 currencyNames = Convert.ToString(comboBox1.SelectedItem),
                 startDate = Convert.ToString(dateTimePicker1.Value),
                 endDate = Convert.ToString(dateTimePicker2.Value)
@@ -75,7 +77,7 @@ namespace _6heti
             }
         }
 
-        void hatosfeladatfuggveny()
+        void hatosfeladatfuggveny() //refresh data fgv
         {
             chartRateData.DataSource = Rates;
             var series = chartRateData.Series[0];
@@ -101,6 +103,11 @@ namespace _6heti
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             NewMethod();
+        }
+
+        GetCurrencies() 
+        {
+            //nem tudtam
         }
     }
 }
