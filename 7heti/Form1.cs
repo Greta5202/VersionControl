@@ -165,7 +165,9 @@ namespace _7heti
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog pfd = new OpenFileDialog();
+            //és az Ok gomb lenyomása után a mellette levő TextBox-ba 
+            //kerüljön a népesség fájl elérési útvonala. Futtatáskor ebből a TextBox-ból vedd a fájlnevet.?
         }
     }
 }
