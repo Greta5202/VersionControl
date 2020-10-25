@@ -10,7 +10,7 @@ namespace _7heti.Entities
     {
         public int Age { get; set; }
         public int NbrOfChildren { get; set; }
-        public double BProbability { get; set; }
+        public double P { get; set; }
        
     }
 }
