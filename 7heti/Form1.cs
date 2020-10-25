@@ -27,8 +27,12 @@ namespace _7heti
             Population = GetPopulation(@"C:\Temp\nép.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+            
 
+        }
 
+        private void szimfut()
+        {
             //szimuláció váza (6.fel)
             for (int year = 2005; year <= 2024; year++)
             {
@@ -47,7 +51,6 @@ namespace _7heti
                 Console.WriteLine(
                     string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
             }
-
         }
 
         //person
@@ -153,6 +156,16 @@ namespace _7heti
                     Population.Add(újszülött);
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            szimfut();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
