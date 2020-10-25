@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace _7heti.Entities
 {
-    public class Birthprobability
+    public class BirthProbability
     {
         public int Age { get; set; }
         public int NbrOfChildren { get; set; }
-        public double Probability { get; set; }
+        public double BProbability { get; set; }
        
     }
 }
